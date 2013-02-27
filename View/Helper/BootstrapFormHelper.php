@@ -161,11 +161,14 @@ class BootstrapFormHelper extends FormHelper {
 	 * @return void
 	 */
 	public function inputAddon($content, $input, $type = "append") {
-		$tag = (strpos("input", $content) !== false) ? "label" : "span";
+		//$tag = (strpos("input", $content) !== false) ? "label" : "span";
+                $tag = "span";
 		$addon = $this->Html->tag($tag, $content, array("class" => "add-on"));
+                if ($type == "append") $mixed = $input.$addon;
+                else $mixed = $addon.$input;
 		return $this->Html->tag(
 			"div",
-			$input . $content,
+			$mixed,
 			array("class" => "input-{$type}")
 		);
 	}
@@ -347,7 +350,7 @@ class BootstrapFormHelper extends FormHelper {
 	 * @access public
 	 * @return string
 	 */
-	public function radio($field, $options = array()) {
+	public function radio($field, $options = array(), $attributes = array()) {
 		if (is_array($field)) {
 			$options = $field;
 		} else {
