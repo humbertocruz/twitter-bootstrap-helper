@@ -125,9 +125,7 @@ class TwitterBootstrapHelper extends AppHelper {
 	}
 
 	public function pagination( $paginator ) {
-                $params = $paginator->params();
-                $count = count($params);
-		return $count;
+		return $this->Bootstrap->pagination( $paginator );
 	}
 
 }

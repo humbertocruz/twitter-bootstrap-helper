@@ -229,6 +229,7 @@ class BootstrapFormHelper extends FormHelper {
 			);
 		}
 		list($help_inline, $help_block) = $this->_helpMarkup($options);
+                //pr($this->validationErrors);
 		if ($this->error($options['field'])) {
 			$options['state'] = 'error';
 			$help_block = $this->Html->tag(

@@ -245,5 +245,9 @@ class BootstrapHelper extends AppHelper {
 			array("class" => $class)
 		);
 	}
+        
+        public function pagination( $paginator ) {
+            return $this->_View->Element( 'Boostrap/pagination', array( 'paginator'=>$paginator ) );
+        }
 
 }
